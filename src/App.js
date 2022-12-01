@@ -3,24 +3,34 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, useGLTF, ContactShadows, Environment } from '@react-three/drei'
 import { proxy, useSnapshot } from 'valtio'
 import { HexColorPicker } from 'react-colorful'
+import mug_03 from "./mug_03.gltf"
+import mug_02 from "./mug_02.gltf"
+import pot_03 from "./pot_03.gltf"
+import pot_02 from "./pot_02.gltf"
+import pot_01 from "./pot_01.gltf"
+
+import mug_01 from "./mug_01.gltf"
+
+
+const b = mug_02;
 
 const state = proxy({
   current: null,
   items: {
-    Body: '#b88c5b',
-    Base: '#ffffff',
-    Top_Band: '#63543f',
-    Bot_Band: '#63543f',
-    Mid_Band: '#657149',
-    Rim: '#ffffff',
-    Handle: '#d4cdba'
+    Rim: '#1e1e1e',
+    Body: '#d9d9db',
+    Base: '#1e1e1e',
+    Top_Band: '#da604e',
+    Mid_Band: '#5da696',
+    Bot_Band: '#cdb152',
+    Handle: '#1e1e1e'
   }
 })
 
-function Mug(props) {
+function Mesh(props) {
   const ref = useRef()
   const snap = useSnapshot(state)
-  const { nodes, materials } = useGLTF('mug.gltf')
+  const { nodes, materials } = useGLTF(b)
 
     // Animate model
    useFrame((state) => {
@@ -60,13 +70,50 @@ function Mug(props) {
       onPointerMissed={(e) => {
         state.current = null
       }}>
-      <mesh material-color={snap.items.Body} geometry={nodes.Body.geometry} material={materials.Body} scale={[15, 15, 15]} />
-      <mesh material-color={snap.items.Base} geometry={nodes.Base.geometry} material={materials.Base} scale={[15, 15, 15]} />
-      <mesh material-color={snap.items.Top_Band} geometry={nodes.Top_Band.geometry} material={materials.Top_Band} scale={[15, 15, 15]} />
-      <mesh material-color={snap.items.Bot_Band} geometry={nodes.Bot_Band.geometry} material={materials.Bot_Band} scale={[15, 15, 15]} />
-      <mesh material-color={snap.items.Mid_Band} geometry={nodes.Mid_Band.geometry} material={materials.Mid_Band} scale={[15, 15, 15]} />
-      <mesh material-color={snap.items.Rim} geometry={nodes.Rim.geometry} material={materials.Rim} scale={[15, 15, 15]} />
-      <mesh material-color={snap.items.Handle} geometry={nodes.Handle.geometry} material={materials.Handle} scale={[15, 15, 15]} />
+
+      {/* Mug_01 */}
+      {/* <mesh material-color={snap.items.Body} geometry={nodes.Body.geometry} material={materials.Body} scale={[20, 20, 20]} />
+      <mesh material-color={snap.items.Base} geometry={nodes.Base.geometry} material={materials.Base} scale={[20, 20, 20]} />
+      <mesh material-color={snap.items.Top_Band} geometry={nodes.Top_Band.geometry} material={materials.Top_Band} scale={[20, 20, 20]} />
+      <mesh material-color={snap.items.Bot_Band} geometry={nodes.Bot_Band.geometry} material={materials.Bot_Band} scale={[20, 20, 20]} />
+      <mesh material-color={snap.items.Mid_Band} geometry={nodes.Mid_Band.geometry} material={materials.Mid_Band} scale={[20, 20, 20]} />
+      <mesh material-color={snap.items.Rim} geometry={nodes.Rim.geometry} material={materials.Rim} scale={[20, 20, 20]} />
+      <mesh material-color={snap.items.Handle} geometry={nodes.Handle.geometry} material={materials.Handle} scale={[20, 20, 20]} /> */}
+
+      {/* Mug_02 */}
+      <mesh material-color={snap.items.Body} geometry={nodes.Body.geometry} material={materials.Body} scale={[20, 20, 20]} />
+      <mesh material-color={snap.items.Base} geometry={nodes.Base.geometry} material={materials.Base} scale={[20, 20, 20]} />
+      <mesh material-color={snap.items.Rim} geometry={nodes.Rim.geometry} material={materials.Rim} scale={[20, 20, 20]} />
+      <mesh material-color={snap.items.Handle} geometry={nodes.Handle.geometry} material={materials.Handle} scale={[20, 20, 20]} />
+      <mesh material-color={snap.items.Top_Band} geometry={nodes.Top_Band.geometry} material={materials.Top_Band} scale={[20, 20, 20]} />
+      <mesh material-color={snap.items.Bot_Band} geometry={nodes.Bot_Band.geometry} material={materials.Bot_Band} scale={[20, 20, 20]} />
+
+      {/* Mug_03 */}
+      {/* <mesh material-color={snap.items.Base} geometry={nodes.Base.geometry} material={materials.Base} scale={[20, 20, 20]} />
+      <mesh material-color={snap.items.Rim} geometry={nodes.Rim.geometry} material={materials.Rim} scale={[20, 20, 20]} />
+      <mesh material-color={snap.items.Handle} geometry={nodes.Handle.geometry} material={materials.Handle} scale={[20, 20, 20]} />
+      <mesh material-color={snap.items.Body} geometry={nodes.Body.geometry} material={materials.Body} scale={[20, 20, 20]} /> */}
+
+      {/* Pot_01 */}
+      {/* <mesh material-color={snap.items.Body} geometry={nodes.Body.geometry} material={materials.Body} scale={[12,12,12]} />
+      <mesh material-color={snap.items.Base} geometry={nodes.Base.geometry} material={materials.Base} scale={[12,12,12]} />
+      <mesh material-color={snap.items.Rim} geometry={nodes.Rim.geometry} material={materials.Rim} scale={[12,12,12]} />
+      <mesh material-color={snap.items.Top_Band} geometry={nodes.Top_Band.geometry} material={materials.Top_Band} scale={[12,12,12]} />
+      <mesh material-color={snap.items.Bot_Band} geometry={nodes.Bot_Band.geometry} material={materials.Bot_Band} scale={[12,12,12]} />
+      <mesh material-color={snap.items.Mid_Band} geometry={nodes.Mid_Band.geometry} material={materials.Mid_Band} scale={[12,12,12]} /> */}
+
+      {/* Pot_02 */}
+      {/* <mesh material-color={snap.items.Base} geometry={nodes.Base.geometry} material={materials.Base} scale={[12,12,12]} />
+      <mesh material-color={snap.items.Rim} geometry={nodes.Rim.geometry} material={materials.Rim} scale={[12,12,12]} />
+      <mesh material-color={snap.items.Body} geometry={nodes.Body.geometry} material={materials.Body} scale={[12,12,12]}  />
+      <mesh material-color={snap.items.Top_Band} geometry={nodes.Top_Band.geometry} material={materials.Top_Band} scale={[12,12,12]} />
+      <mesh material-color={snap.items.Mid_Band} geometry={nodes.Mid_Band.geometry} material={materials.Mid_Band} scale={[12,12,12]} />
+      <mesh material-color={snap.items.Bot_Band} geometry={nodes.Bot_Band.geometry} material={materials.Bot_Band} scale={[12,12,12]} /> */}
+
+      {/* Pot_03*/}
+      {/* <mesh material-color={snap.items.Base} geometry={nodes.Base.geometry} material={materials.Base} scale={[12,12,12]} />
+      <mesh material-color={snap.items.Rim} geometry={nodes.Rim.geometry} material={materials.Rim} scale={[12,12,12]} />
+      <mesh material-color={snap.items.Body} geometry={nodes.Body.geometry} material={materials.Body} scale={[12,12,12]} /> */}
 
     </group>
   )
@@ -94,9 +141,9 @@ export default function App() {
         <directionalLight intensity={0.8} position={[10, 15, 10]} castShadow />
         <spotLight intensity={0.5} angle={0.1} penumbra={1} position={[10, 15, 10]} castShadow />
         <Suspense fallback={null}>
-          <Mug />
+          <Mesh />
           <Environment preset="sunset" />
-          <ContactShadows position={[0, -0.8, 0]} opacity={0.35} scale={10} blur={1.5} far={0.8} />
+          <ContactShadows position={[0,-1.5, 0]} opacity={0.4} scale={10} blur={1.5} far={1.5} />
         </Suspense>
         <OrbitControls enableZoom={false} enablePan={false} />
       </Canvas>
