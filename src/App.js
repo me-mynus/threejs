@@ -5,7 +5,7 @@ import { proxy, useSnapshot } from 'valtio'
 import { HexColorPicker } from 'react-colorful'
 
 //Importing gltf models of products
-//hello
+//https://gltf.pmnd.rs/
 import mug_01 from "./mug_01.gltf"
 import mug_02 from "./mug_02.gltf"
 import mug_03 from "./mug_03.gltf"
